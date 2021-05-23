@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <a href="/">home</a>
+        <a href="/SearchPage">Search</a>
+        <a href="/savelist"> my list</a>
+    </header>
+    <main>
+        <h2><%=data.title  %> </h2>
+        <h2><%=data.company  %></h2>
+        <h3><%=data.location  %></h3>
+        <h3><a href="<%=data.url  %>"> <%=data.url  %></a> </h3> 
+        <h7><%=data.description  %></h7>
+
+
+        <button id="update">update</button>
+        <form action="/update/<%=data.id%>" method="GET" id="form">
+            
+            <input type="text" name="title" id="title" value="<%=data.title  %>">
+            <input type="text" name="company" id="company" value="<%=data.company  %>">
+            <input type="text" name="location" id="location" value="<%=data.location  %>">
+            <input type="text" name="url" id="url" value="<%=data.url  %>">
+            <input type="text" name="description" id="description" value="<%=data.description  %>">
+            <button>update</button>
+        
+        </form>
+
+        <form action="/delete/<%=data.id%>" method="GET" >
+            
+           
+            <button>delete</button>
+        
+        </form>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/js/app.js"></script>
+</body>
+</html>

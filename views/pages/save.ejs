@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style/sewar.css">
+</head>
+<body>
+    <header>
+        <a href="/">home</a>
+        <a href="/SearchPage">Search</a>
+        <a href="/savelist"> my list</a>
+    </header>
+    <main>
+        <%data.forEach(element => { %> 
+<div>
+            <h2><%=element.title  %> </h2>
+            <h2><%=element.company  %></h2>
+            <h3><%=element.location  %></h3>
+            <h3><a href="<%=element.url  %>"> <%=element.url  %></a> </h3> 
+
+            <form action="/details/<%=element.id  %>" method="GET">
+
+                <input type="hidden" name="title" id="title" value="<%=element.title  %>">
+                <input type="hidden" name="company" id="company" value="<%=element.company  %>">
+                <input type="hidden" name="location" id="location" value="<%=element.location  %>">
+                <input type="hidden" name="url" id="url" value="<%=element.url  %>">
+                <input type="hidden" name="description" id="description" value="<%=element.description  %>">
+                <button>view details</button>
+            </form>
+</div>
+            <%   })  %> 
+    </main>
+</body>
+</html>
